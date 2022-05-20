@@ -26,6 +26,7 @@ async def on_message(message):
             await message.channel.send('@everyone raid starts in {} minutes!'.format(time))
 
     if message.content.startswith('!create'):
-        print(message.author.roles)
+#        print(message.member.guild_permissions)
+#        print(message.author.roles)
 
 bot.run(os.getenv('TOKEN'))
