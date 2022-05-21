@@ -27,6 +27,6 @@ async def on_message(message):
 
     if message.content.startswith('!create'):
 #        print(message.member.guild_permissions)
-#        print(message.author.roles)
+        print(message.author.roles)
 
 bot.run(os.getenv('TOKEN'))
