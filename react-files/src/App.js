@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Command from './components/Command.js';
+import Header from './components/Header.js';
+import Content from './components/Content.js';
 
 class App extends Component {
   constructor(props){
@@ -8,7 +11,9 @@ class App extends Component {
   render() {
     return(
       <div>
-        Test
+        <Header title="Application" />
+        <Content />
+        <Command />
       </div>
     )
   }
