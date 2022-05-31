@@ -12,8 +12,12 @@ def main():
     bot = discord.Client()
 
     @bot.event
+    async def on_connect():
+        print('{0.user} has successfully connected!'.format(bot))
+
+    @bot.event
     async def on_ready():
-        print('{0.user} has successfully logged in!'.format(bot))
+        print('{0.user} is ready!'.format(bot))
 
     @bot.event
     async def on_message(message):
@@ -36,7 +40,8 @@ def main():
             print("Author: {}".format(message.author))
             print("Roles: {}".format(message.author.roles))
             print("*-------*")
-            
+
+        '''Terminates program and should take the bot offline, but bot stays online a bit after'''
         if message.content.startswith('!bye'):
             await message.channel.send('Signing off!')
             await bot.close()
