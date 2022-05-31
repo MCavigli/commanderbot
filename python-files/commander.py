@@ -38,11 +38,13 @@ def main():
 #        print(message.member.guild_permissions)
             print("*-------*")
             print("Author: {}".format(message.author))
-            print("Roles: {}".format(message.author.roles))
+            print("Roles: {}".format(message.author.roles[1]))
             print("*-------*")
 
         '''Terminates program and should take the bot offline, but bot stays online a bit after'''
         if message.content.startswith('!bye'):
+            print("Bot signing off")
+            print("....\n...\n..\n.")
             await message.channel.send('Signing off!')
             await bot.close()
 
