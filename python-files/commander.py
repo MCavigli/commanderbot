@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 import discord
 import os
+import aiosqlite
 from dotenv import load_dotenv
 
 def main():
+    '''Allows the access of the global variable which contains the authentication TOKEN'''
     load_dotenv()
+
+    '''Assigns Client() class to bot variable'''
     bot = discord.Client()
 
     @bot.event
@@ -28,10 +32,17 @@ def main():
 
         if message.content.startswith('!create'):
 #        print(message.member.guild_permissions)
-            print(message.author.roles)
+            print("*-------*")
+            print("Author: {}".format(message.author))
+            print("Roles: {}".format(message.author.roles))
+            print("*-------*")
+            
+        if message.content.startswith('!bye'):
+            await message.channel.send('Signing off!')
+            await bot.close()
 
+    '''Boots up the Discord bot'''
     bot.run(os.getenv('TOKEN'))
 
 if __name__ == '__main__':
     main()
-    
